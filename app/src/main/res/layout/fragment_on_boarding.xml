@@ -6,34 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.onBoard.OnBoardingFragment">
 
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_boarding"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/rv_bording"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/indicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_skep"
         tools:listitem="@layout/item_boarding" />
 
     <TextView
-        android:id="@+id/tv_skip"
+        android:id="@+id/txt_skep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/page_margin"
-        android:text="SKIP"
+        android:layout_margin="16dp"
+        android:text="@string/skep"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
 
     <me.relex.circleindicator.CircleIndicator2
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_margin="@dimen/page_margin"
-        app:ci_drawable="@drawable/indicator_selector"
-        app:ci_drawable_unselected="@drawable/indicator_default"
+        android:layout_margin="46dp"
+        app:ci_drawable="@drawable/shape_cycle"
+        app:ci_drawable_unselected="@drawable/shape_cycle"
         app:ci_gravity="center"
         app:ci_orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingClass" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,6 @@ interface Dao {
     @Delete
     fun delete(task: TaskModel)
 
-    @Query("SELECT * FROM taskModel WHERE task=:title")
+    @Query("SELECT* FROM taskModel WHERE task=:title")
     fun getTask(title: String): TaskModel?
 }

@@ -8,7 +8,7 @@ class Pref(private val context: Context) {
 
     fun saveShown() {
         context.getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit().putBoolean("isShown", true)
-            .commit()
+            .apply()
     }
 
     fun isShown(): Boolean {
@@ -17,7 +17,7 @@ class Pref(private val context: Context) {
 
     fun saveName(name: String) {
         context.getSharedPreferences(PREF_NAME, MODE_PRIVATE).edit().putString("saveText", name)
-            .commit()
+            .apply()
     }
 
     fun getName(): String {

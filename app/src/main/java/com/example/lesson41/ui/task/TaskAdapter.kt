@@ -1,7 +1,10 @@
 package com.example.lesson41.ui.task
 
+import android.annotation.SuppressLint
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson41.R
 import com.example.lesson41.databinding.ItemTaskBinding
@@ -21,6 +24,7 @@ class TaskAdapter(
         notifyItemInserted(tasks.lastIndex)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setSearchResult(newTaskModel: TaskModel){
         tasks.clear()
         tasks.add(newTaskModel)
@@ -33,6 +37,7 @@ class TaskAdapter(
         notifyItemChanged(index)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun addData(data: List<TaskModel>?) {
         tasks.clear()
         data?.let {
@@ -46,6 +51,7 @@ class TaskAdapter(
         return TaskViewHolder(binding)
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
         holder.onBind(tasks[position])
     }
@@ -62,24 +68,26 @@ class TaskAdapter(
         notifyItemRemoved(index)
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun convertDate(millis: Long, dateFormat: String): String {
         val simpleDateFormat = SimpleDateFormat(dateFormat)
         return simpleDateFormat.format(Date(millis)).toString()
     }
 
-    inner class TaskViewHolder(val binding: ItemTaskBinding) :
+    inner class TaskViewHolder(private val binding: ItemTaskBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
+        @RequiresApi(Build.VERSION_CODES.M)
         fun onBind(model: TaskModel) {
             val isThemeColor = adapterPosition % 2 == 0
             val color = if (isThemeColor) {
-                R.color.app_theme_color
+                R.color.blul
             } else {
-                R.color.app_bg_color
+                R.color.white
             }
             itemView.setBackgroundColor(itemView.context.getColor(color))
-            binding.tvTask.text = model.task
-            binding.tvDate.text = convertDate(model.time, "dd-MMMM-yyyy hh:mm")
+            binding.txtInput.text = model.task
+            binding.txtDate.text = convertDate(model.time, "dd-MMMM-yyyy hh:mm")
 
             itemView.setOnClickListener {
                 onClick(model)

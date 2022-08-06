@@ -19,7 +19,7 @@ class TaskFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =
             FragmentTaskBinding.inflate(inflater, container, false)
         return binding.root
@@ -27,7 +27,7 @@ class TaskFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.saveBtn.setOnClickListener {
+        binding.btnTask.setOnClickListener {
             saveOrUpdate()
         }
         checkTask()

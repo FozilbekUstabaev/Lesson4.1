@@ -34,10 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.nav_host_fragment_activity_main)
 
-        if (!Pref(this).isShown()) {
-            navController.navigate(R.id.onBoardingFragment)
-        }
-
+         if (!Pref(this).isShown()) {
+             navController.navigate(R.id.onBoardingFragment)
+         }
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home,
@@ -52,10 +51,10 @@ class MainActivity : AppCompatActivity() {
             navView.isVisible = listFragment.contains(destination.id)
             if (destination.id == R.id.onBoardingFragment) {
                 supportActionBar?.hide()
-                window.statusBarColor = ContextCompat.getColor(this, R.color.app_bg_color)
+                window.statusBarColor = ContextCompat.getColor(this, R.color.white)
             } else {
                 supportActionBar?.show()
-                window.statusBarColor = ContextCompat.getColor(this, R.color.app_theme_color)
+                window.statusBarColor = ContextCompat.getColor(this, R.color.white)
             }
         }
     }

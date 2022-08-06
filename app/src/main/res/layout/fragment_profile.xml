@@ -8,25 +8,29 @@
 
 
     <ImageView
-        android:id="@+id/img"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/page_margin"
-        android:background="@drawable/selector"
-        android:src="@drawable/profile_ic"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/img_Profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/ic_profile"
+        android:contentDescription="@string/todo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/et_name"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/page_margin"
-        android:hint="Enter Your Name"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/img"
-        app:layout_constraintLeft_toRightOf="@+id/img"
-        app:layout_constraintTop_toTopOf="@+id/img" />
+        android:autofillHints=""
+        android:hint="@string/your_name"
+        android:inputType=""
+        android:textColorHint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/img_Profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toEndOf="@+id/img_Profile"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor,MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

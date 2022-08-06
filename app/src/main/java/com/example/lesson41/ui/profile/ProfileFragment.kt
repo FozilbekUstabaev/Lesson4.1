@@ -27,7 +27,7 @@ class ProfileFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.data != null && it.resultCode == RESULT_OK) {
                 val image = it?.data?.data
-                binding.img.loadImage(image)
+                binding.imgProfile.loadImage(image)
             }
         }
 
@@ -60,11 +60,11 @@ class ProfileFragment : Fragment() {
 
         binding.etName.setText(Pref(requireContext()).getName())
 
-        binding.img.setOnClickListener {
+        binding.imgProfile.setOnClickListener {
             loadFromGalley()
         }
-        binding.img.setOnLongClickListener {
-            if (binding.img.drawable != null) {
+        binding.imgProfile.setOnLongClickListener {
+            if (binding.imgProfile.drawable != null) {
                 showToast(getString(R.string.image_exists))
             } else {
                 requireContext().alertDialog(

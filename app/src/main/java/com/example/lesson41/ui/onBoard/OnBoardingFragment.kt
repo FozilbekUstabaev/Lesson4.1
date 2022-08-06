@@ -30,15 +30,15 @@ class OnBoardingFragment : Fragment() {
             start()
         }
 
-        binding.rvBoarding.adapter = adapter
+        binding.rvBording.adapter = adapter
         val snapHelper = PagerSnapHelper()
-        snapHelper.attachToRecyclerView(binding.rvBoarding)
+        snapHelper.attachToRecyclerView(binding.rvBording)
 
-        binding.indicator.attachToRecyclerView(binding.rvBoarding, snapHelper)
+        binding.indicator.attachToRecyclerView(binding.rvBording, snapHelper)
 
         adapter.registerAdapterDataObserver(binding.indicator.adapterDataObserver)
 
-        binding.tvSkip.setOnClickListener {
+        binding.txtSkep.setOnClickListener {
             start()
         }
     }

@@ -7,14 +7,13 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.lesson41.R
 
 fun ImageView.loadImage(url: Uri?) {
     Glide.with(this).load(url).circleCrop().into(this)
 }
 
 fun Fragment.showToast(msg: String) {
-    Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT)
+    Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
 }
 
 fun Context.alertDialog(
@@ -25,10 +24,10 @@ fun Context.alertDialog(
 ) {
     val d = AlertDialog.Builder(this)
     d.setTitle(title)
-    d.setNegativeButton(negativeButtonTitle) { dialog, p1 ->
+    d.setNegativeButton(negativeButtonTitle) { dialog, _ ->
         dialog.cancel()
     }
-    d.setPositiveButton(positiveButtonTitle) { dialog, p1 ->
+    d.setPositiveButton(positiveButtonTitle) { dialog, _ ->
        onPositiveClick()
         dialog.cancel()
     }
